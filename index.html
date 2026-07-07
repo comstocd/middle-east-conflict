@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Conflict in the Levant — Document Repository</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', serif;
+    background: #f2ede6;
+    color: #1a1a1a;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  header {
+    background: #1a1a1a;
+    color: #f2ede6;
+    padding: 18px 32px;
+    flex-shrink: 0;
+    border-bottom: 3px solid #8b1a1a;
+  }
+
+  header h1 {
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  header p {
+    font-size: 12px;
+    color: #999;
+    margin-top: 4px;
+    font-style: italic;
+    font-family: 'Courier New', monospace;
+  }
+
+  .panels {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    gap: 0;
+  }
+
+  .panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ccc;
+    overflow: hidden;
+  }
+
+  .panel:last-child {
+    border-right: none;
+  }
+
+  .panel-header {
+    background: #2c2c2c;
+    color: #f2ede6;
+    padding: 10px 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    border-bottom: 2px solid #8b1a1a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .panel-number {
+    background: #8b1a1a;
+    color: #f2ede6;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .panel-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: #faf8f4;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .panel-body::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .panel-body::-webkit-scrollbar-track {
+    background: #e8e4dc;
+  }
+
+  .panel-body::-webkit-scrollbar-thumb {
+    background: #8b1a1a;
+    border-radius: 3px;
+  }
+
+  /* Conversation panel styles */
+  .message {
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e0dbd2;
+  }
+
+  .message:last-child {
+    border-bottom: none;
+  }
+
+  .speaker {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .speaker.dcmd { color: #1a5c8b; }
+  .speaker.player { color: #8b1a1a; }
+  .speaker.note { color: #666; font-style: italic; font-weight: normal; }
+
+  .message-text {
+    color: #2a2a2a;
+    white-space: pre-wrap;
+  }
+
+  /* Chronology panel styles */
+  .chron-section {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e0dbd2;
+  }
+
+  .chron-section:last-child { border-bottom: none; }
+
+  .chron-year {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #8b1a1a;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .chron-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+  }
+
+  .chron-body {
+    color: #333;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  /* Video panel styles */
+  .video-placeholder {
+    background: #1a1a1a;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .video-caption {
+    padding: 10px 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: #999;
+    text-transform: uppercase;
+    background: #111;
+  }
+
+  .video-add {
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    padding: 24px;
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 16px;
+  }
+
+  .video-add code {
+    display: block;
+    margin-top: 8px;
+    font-size: 11px;
+    color: #8b1a1a;
+    word-break: break-all;
+  }
+
+  /* Scores display */
+  .scores {
+    background: #1a1a1a;
+    color: #f2ede6;
+    border-radius: 4px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+  }
+
+  .scores-title {
+    color: #8b1a1a;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-size: 10px;
+  }
+
+  .score-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0;
+    border-bottom: 1px solid #333;
+  }
+
+  .score-row:last-child { border-bottom: none; }
+
+  .score-val {
+    color: #c8a060;
+  }
+
+  footer {
+    background: #1a1a1a;
+    color: #555;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    padding: 8px 32px;
+    letter-spacing: 0.06em;
+    flex-shrink: 0;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Documents Related to a Discussion Regarding the Historical Origins and Modern Trajectory of the Conflict in the Levant</h1>
+  <p>Personal reference repository &mdash; not for publication</p>
+</header>
+
+<div class="panels">
+
+  <!-- PANEL 1: CONVERSATION -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-number">1</div>
+      Conversation Transcript
+    </div>
+    <div class="panel-body">
+
+      <div class="message">
+        <div class="speaker note">— Opening exchange —</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">just lost 30 pts in 2 games with bukaska
+i want to kill him</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">convince him to go to palestine on vacation</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">lol
+there is no palestine</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">https://en.wikipedia.org/wiki/Palestine</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">i dont see how you would not give palestinians the same respect as native americans</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">where did THAT come from?</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">they were there first and they were slaughtered for it. only the palestinians are still getting genocided</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">i never expected to hear strawman arguments from you.
+well, there you go ... they weren't "there first."
+genocided?
+now i think *you're* drunk</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">i know
+even if they werent there first they still have been there for centuries and they have rights
+lets be honest. israel is more of a terrorist organisation than a country. its so much worse than al qaida has ever been</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker note">— Substantive exchange —</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">if you truly believe that the ONLY democratic state in the middle-east, the ONLY jewish state in the middle-east is a "terrorist organization" i think we're done.
+particularly in light of you admitting that you don't know the history of the MULTITUDE of attacks for 100 years against the jews and your failure to understand that those in the west bank and gaza were forced there after egypt and jordan expelled them, for continuing to persist in violence against israel.
+i find it truly astounding and supremely disappointing.
+i don't need people to agree with me, but i do need people to at least be honest.
+the amount of antisemitism in Europe and in the news media is sad, and i understand that you are constantly bombarded with it.
+but, you're a smart man. i expect you to be able to understand beyond the poison people want to pour in your ear.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">arent lebanon, iraq and jordan also democracies on the middle east? did you know that the israelian army has killed 259 journalist in the last 4 years. since 2011 there were around 1200 journalists killed in war. israel has been killing them a lot and it seems that every time they try to cover it up as well.
+did you know that israel has killed more people in gaza since 2023 than al qaida has killed since al qaida has existed.
+israel killed over 23000 children in gaza since october 2023. russia and ukraine together are at 2000.
+jews being the victim of genocide in the past doesnt give israel the right to invade palestine, create a country on the land that was already occupied by people living there for generations and systematicly commiting war crimes against those people.
+and its very sad if you are defending the behaviour af this terrorist organisation.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker note">— Auschwitz and Mengele —</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">what do you know about Auschwitz?</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">it was the most notorious nazi concentration camp where millions of people were forced to work before being executed</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">do you know who Josef Mengele was?</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">Maybe but his name doesnt sound familiair
+I googled him. Not a nice man</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">did you read what he did specifically to children?</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">i just did
+Have you heard of Gijs Sanders? He is a journalist who was kidnapped on international waters by Israel and lightly tortured.
+Evil shit.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">i understand. what happened to gijs is wrong. and i notice you moved very quickly away from mengele and the children.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">What else did you want to say about Mengele?</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">the leader of the Palestinian national movement during the 1940s personally intervened to send Jewish children to Auschwitz rather than allow them to be exchanged for German prisoners of war.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">Chatgpt says that you are wrong about that</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">i'm not relying on ChatGPT. i'm relying on the United States Holocaust Memorial Museum.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">im not seeing your point tbh</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">my point is this. you are accusing Israel of genocide. the actual genocide, the one with gas chambers and Mengele and six million dead, was supported and actively assisted by the leadership of the palestinian national movement. the man who led that movement was Haj Amin al-Husseini, the Grand Mufti of Jerusalem. he personally intervened with the german foreign ministry to send Jewish children to Auschwitz rather than let them be exchanged for German prisoners of war. that is the historical context in which Israel was founded. not as a colonial project. as the last refuge of a people who had just watched a third of their global population murdered, with the assistance of the very movement you are defending.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">Conclusion. There is no reliable or generally accepted estimate of the number of Jews who died as a direct result of Haj Amin al-Husseini's actions. His collaboration with Nazi Germany and his antisemitic propaganda are well documented. Historians regard him as an accomplice and propagandistic ally of the Nazi regime, but not as an architect or decisive instigator of the Holocaust.
+invading palestine and taking their land, lives and way of life sounds alot like colonialism to me.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">i didn't say he caused the Holocaust. i said he chose to send Jewish children to Auschwitz rather than let them go free. that specific act is documented by the United States Holocaust Memorial Museum. ChatGPT is not disputing what i actually said.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker note">— Analogies and partition —</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">moving to a different country is called emigration.
+Lets say there is a guy called Achmed. Achmed has lived in Gaza. His family has lived in Gaza for generations. There is also a guy called Daniel. Daniel lives in Finland and Daniel is Jewish. Daniel wants to live where Achmed lives. Who should live there?</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">both of them. that was literally the 1947 UN partition plan. two states, side by side. israel accepted it. the arab states rejected it and declared war. so your question has an answer: they were offered exactly that and the arab side said no.
+also, daniel's family lived next to achmed's family for three thousand years before being expelled by rome. daniel never stopped praying toward that land. daniel's grandfather was just murdered in auschwitz. and achmed's leader helped put him there.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">i read about camp david 2000. its clear that the deal did not happen because israels position and palestiness position were too far apart and it was not possible to make a deal that would satisfy both parties. i dont think its fair to blame just 1 party for not making the deal.
+maybe the jews have some merit. they way they are getting this land (genocide and war crimes) is wrong.
+therefore its not possible for israel to have the moral high ground.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">the mediators themselves don't agree with you. clinton, ross, and barak all publicly stated arafat was responsible for the failure. clinton said so explicitly in his memoirs. arafat was offered a state and chose the second intifada instead. 1000 israeli civilians died in suicide bombings in the following two years.
+and russia has never been attacked by ukraine. israel has been attacked continuously since 1948 by neighbors who declared their intention to annihilate it. russia invaded a peaceful neighbor. israel has never invaded a country that wasn't actively trying to destroy it. that distinction matters.
+you said maybe the jews have some merit. i'd like to stay with that. what would it take for you to believe that israel has the right to exist?</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">im ok with israel existing if it stops being a terrorist organisation an compensates the people it has terrorised and their next of kins.
+it might be a chicken and egg thing.
+did israel become the one of the most evil organisations of all time because all its neighbours hated israel?
+or does eveybody hate israel because its one of the most evil organisations of all time?
+or perhaps even both.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">i'm glad you're ok with israel existing. that matters. and your chicken and egg question is the right question. the honest answer is: both. israel has made serious mistakes and committed real wrongs. and it has done so surrounded by neighbors who have tried to destroy it since the day it was born.
+"one of the most evil organizations of all time" includes the nazis, the khmer rouge who murdered a quarter of cambodia's entire population, mao who killed 20 million of his own people, stalin who killed 20 million, isis who filmed beheadings as recruitment videos. those were machines built purely to destroy.
+israel has a supreme court that overrules its own military, arab citizens in its parliament and on its highest courts, and treats enemies in its hospitals. it is also fighting an enemy that on october 7 2023 deliberately murdered 1200 civilians, raped women, burned families alive, and took 250 hostages.
+and between 1948 and 2000: five full scale wars declared against israel with the stated goal of annihilation. suicide bombers on buses and in pizza restaurants. the 1972 olympics. hijackings. the 1973 yom kippur surprise attack on the holiest day of the jewish calendar. the chicken and egg question has an answer. you just have to be willing to look at the full timeline.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">not the most evil of all time of course but maybe top 5 most evil of the past 200 years.
+you are really worried about those 1450 people from october 7 while it has victimized 10000 times that number.
+also im not even convinced anymore if israel even tried to stop october 7.
+hamas has killed around 1800 civilians since 1987. that is an average of 46 per year.
+in that same period israel has killed 30000-50000 palestinian civilians.
+please dont pretend 50000 is less than 1800.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">there is so much in your last message that is factually wrong, morally distorted, and logically inconsistent that i need some time to unpack it. see you in a few days.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">numbers dont lie</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker note">— DCMD2016's extended response (formal messages) —</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">Before we get lost in numbers, let me remind you what this conversation is actually about. You have argued that Israel is a terrorist organization committing genocide. I have shown that the Palestinian national leadership actively collaborated with Nazi Germany, that the genocide accusation fails every legal standard, and that Arab states bear enormous responsibility for Palestinian suffering. Now you are citing casualty statistics as though numbers alone settle moral and legal questions. They do not.
+
+The 83% figure comes from a real leaked Israeli military database. I take it seriously. But the report itself acknowledges the database only tracks named Hamas and PIJ fighters. It completely excludes unidentified fighters, informal combatants, other armed groups, and Hamas political personnel. If an armed militant is killed in a collapsed tunnel but his ID card and official Hamas roster number aren't yet on file, he is categorized in that database as a non-combatant. The denominator is incomplete by the report's own admission.
+
+Notice also what the article does with that data. It takes a credible figure and surrounds it with language like "wanton killing" and frames Israeli denials as inherently self-serving. That is editorializing embedded in a news article. It is a technique: take a legitimate data point, wrap it in advocacy framing, and the framing launders itself through the credibility of the data.
+
+The same article confirms that early Israeli kill figures like 17,000 were not systematic data. They were field commanders saying "I killed five terrorists." Hamas does exactly the same thing. Their figures come from a ministry they control with no independent verification and every incentive to maximize reported civilian deaths. This is exactly what happened with US body counts in Vietnam, where identical incentive structures produced identical distortions.
+
+A retired Israeli Major General called IDF casualty figures one of the most serious bluffs in Israel's history. The Israeli Knesset's own defense committee found the army inflated militant figures to manufacture a favorable ratio. You are using data generated by a free society's internal checks and balances to condemn it. Show me Hamas's equivalent committee. Show me Hamas's B'Tselem. You cannot, because authoritarian organizations do not allow internal critique. They enforce compliance through terror against their own people.
+
+What gets omitted: Israel dropped leaflets, sent SMS messages, and used warning munitions before strikes. Hamas publicly told civilians to stay, embedded its military infrastructure under homes and hospitals, and physically blocked evacuation routes.
+
+Data from Action on Armed Violence shows that globally, 90% of casualties from explosive weapons used in urban environments are civilian. That is not a uniquely Israeli figure. That is the universal, tragic mathematics of modern urban combat when an adversary intentionally embeds its military infrastructure inside a civilian population. It is not evidence of genocide. It is evidence of war.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker note">— Closing exchanges —</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker player">Player B</div>
+        <div class="message-text">I never said today's civilians are responsible for anything. Good, you were strongly hinting at it multiple times but i'm glad we can (hopefully) agree that the 1940 thing is completely irrelevant now.
+Probably the one who ignores/disregards Amnesty International, Israels own data and all the other sources along with every youtube link i sent you.
+Refuge by colonialism/genocide is not proper refuge.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">it's not irrelevant. it's the historical context that explains why israel was founded as a refuge rather than a colonial project. that context doesn't disappear because you find it inconvenient.
+i didn't ignore amnesty, israel's own data, or your sources. i showed that amnesty is an advocacy organization, not a judicial body. i showed that israel's own data was internally disputed by the knesset defense committee and described as one of the most serious bluffs in israel's history by a retired israeli major general. i engaged with every substantive claim. engaging critically is not ignoring. and the youtube links are not sources.</div>
+      </div>
+
+      <div class="message">
+        <div class="speaker dcmd">DCMD2016</div>
+        <div class="message-text">i hope you'll read more. the history is more complicated than the narrative you've been given. it's been a privilege to have partnered with you in so many games. i appreciate how much i've learned about bughouse from you. good luck.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PANEL 2: CHRONOLOGY -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-number">2</div>
+      Historical Chronology (Summary)
+    </div>
+    <div class="panel-body">
+
+      <div class="chron-section">
+        <div class="chron-year">Executive Summary</div>
+        <div class="chron-title">The Conflict in the Levant: 1880–2025</div>
+        <div class="chron-body">A 145-year chronology in four parts. Every negotiating window was closed by at least one of three structural failures: fragmented Palestinian leadership, Israeli inability to halt settlement expansion while negotiating, and external shocks resetting political context. Each failure left physical and psychological infrastructure making the next attempt harder. By 2025 the settler population has grown from 110,000 in 1993 to approximately 700,000. The question is no longer whether a two-state solution is theoretically correct. It is whether conditions for implementing any solution still exist.</div>
+      </div>
+
+      <div class="chron-section">
+        <div class="chron-year">Part One — 1880–1917</div>
+        <div class="chron-title">The Road to Balfour</div>
+        <div class="chron-body">Modern Zionism emerged not from colonial ambition but from state-sanctioned antisemitic violence — the Russian pogroms of 1881. Jewish immigration to Ottoman Palestine was legal, land purchases market-based, and the populations not inherently incompatible. What made them incompatible was Britain's triple contradiction: promising the same territory to Arab leadership, France, and the Zionist movement within 26 months during WWI. Whether by deliberate design or bureaucratic compartmentalization, the contradictions were known to senior officials and allowed to persist. The effect: structural insolubility embedded at the conflict's founding.</div>
+      </div>
+
+      <div class="chron-section">
+        <div class="chron-year">Part Two — 1918–1948</div>
+        <div class="chron-title">Mandate, Partition, and War</div>
+        <div class="chron-body">Britain severed 77% of the original territory to create Transjordan in 1921, then spent the Mandate satisfying neither population. The Holocaust made Jewish statehood morally unanswerable. The 1947 UN Partition Plan offered a compromise: the Jewish side accepted it, the Arab states rejected it and declared a war of elimination. Israel survived. Approximately 700,000 Palestinians were displaced. Approximately 850,000 Jews were simultaneously expelled from Arab countries. Arab states then deliberately preserved Palestinian statelessness as a political instrument — a cynical calculation whose consequences endure.</div>
+      </div>
+
+      <div class="chron-section">
+        <div class="chron-year">Part Three — 1948–1982</div>
+        <div class="chron-title">Asymmetric Warfare and Regional Realignment</div>
+        <div class="chron-body">Pan-Arab solidarity was exposed as fiction: Jordan killed Palestinians in 1970 (Black September), Syria attacked the PLO in 1976, Egypt made separate peace in 1979, no Arab state intervened in Lebanon in 1982. Israel's 1977 political transformation — driven by the Yom Kippur trauma and Mizrahi demographic power — produced a government viewing the West Bank as ancestral land, not a bargaining chip. Israel's tolerance of Hamas as a counterweight to the PLO during the 1987 First Intifada produced the single most consequential strategic miscalculation of the post-1967 period.</div>
+      </div>
+
+      <div class="chron-section">
+        <div class="chron-year">Part Four — 1993–2025</div>
+        <div class="chron-title">The Post-Oslo Paralysis</div>
+        <div class="chron-body">Oslo deferred all hard questions, giving spoilers five years to destroy the process. Settlement construction nearly doubled during the peace years. Rabin's assassination removed the one Israeli leader capable of completing the framework. Camp David 2000 failed because neither leader could bridge the gap. Each subsequent cycle — Second Intifada, Protective Edge, October 7 — reset public attitudes to a lower floor. The 2007 Gaza blockade failed to remove Hamas while paradoxically strengthening its political narrative. By 2025: 85% of Israeli Jews and 63% of all respondents in both populations believe permanent peace will never come.</div>
+      </div>
+
+      <div class="chron-section">
+        <div class="chron-year">Polling Data</div>
+        <div class="chron-title">Support for Coexistence / Two-State Solution</div>
+        <div class="chron-body">
+          <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;font-size:12px;font-family:'Courier New',monospace;">
+              <tr style="border-bottom:2px solid #8b1a1a;">
+                <th style="text-align:left;padding:4px 8px;">Year</th>
+                <th style="text-align:right;padding:4px 8px;">Israeli Jews</th>
+                <th style="text-align:right;padding:4px 8px;">Israeli Arabs</th>
+                <th style="text-align:right;padding:4px 8px;">Palestinians</th>
+              </tr>
+              <tr style="border-bottom:1px solid #ddd;">
+                <td style="padding:4px 8px;">1995 (Oslo peak)</td>
+                <td style="text-align:right;padding:4px 8px;">~65%</td>
+                <td style="text-align:right;padding:4px 8px;">~80%</td>
+                <td style="text-align:right;padding:4px 8px;">72%</td>
+              </tr>
+              <tr style="border-bottom:1px solid #ddd;">
+                <td style="padding:4px 8px;">2012 (last majority)</td>
+                <td style="text-align:right;padding:4px 8px;">61%</td>
+                <td style="text-align:right;padding:4px 8px;">~80%</td>
+                <td style="text-align:right;padding:4px 8px;">66%</td>
+              </tr>
+              <tr style="border-bottom:1px solid #ddd;">
+                <td style="padding:4px 8px;">2023 (pre-Oct 7)</td>
+                <td style="text-align:right;padding:4px 8px;">30%</td>
+                <td style="text-align:right;padding:4px 8px;">49%</td>
+                <td style="text-align:right;padding:4px 8px;">34%</td>
+              </tr>
+              <tr style="border-bottom:1px solid #ddd;background:#fff0f0;">
+                <td style="padding:4px 8px;">2023 (post-Oct 7)</td>
+                <td style="text-align:right;padding:4px 8px;">21%</td>
+                <td style="text-align:right;padding:4px 8px;">52%</td>
+                <td style="text-align:right;padding:4px 8px;">34%</td>
+              </tr>
+              <tr style="background:#fff0f0;">
+                <td style="padding:4px 8px;">2025</td>
+                <td style="text-align:right;padding:4px 8px;color:#8b1a1a;font-weight:bold;">16%</td>
+                <td style="text-align:right;padding:4px 8px;color:#8b1a1a;font-weight:bold;">40%</td>
+                <td style="text-align:right;padding:4px 8px;color:#8b1a1a;font-weight:bold;">33%</td>
+              </tr>
+            </table>
+          </div>
+          <div style="margin-top:8px;font-size:11px;color:#666;font-family:'Courier New',monospace;">Sources: Pew, PCPSR, Gallup, Tel Aviv University Peace Index, JPPI</div>
+        </div>
+      </div>
+
+      <div class="chron-section">
+        <div class="chron-year">Full Document</div>
+        <div class="chron-title">Complete Chronology (Word Document)</div>
+        <div class="chron-body">The complete four-part chronology is available as a Word document in this repository: <strong>Israeli_Palestinian_Chronology_1880_2025.docx</strong><br><br>ChatGPT evaluation: <strong>9.6/10 overall intellectual fairness</strong></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PANEL 3: VIDEOS -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-number">3</div>
+      Video Resources
+    </div>
+    <div class="panel-body">
+
+      <div class="scores">
+        <div class="scores-title">ChatGPT Evaluation — Historical Document</div>
+        <div class="score-row"><span>Historical accuracy</span><span class="score-val">9.7 / 10</span></div>
+        <div class="score-row"><span>Recognition of competing scholarship</span><span class="score-val">9.8 / 10</span></div>
+        <div class="score-row"><span>Balance toward Israeli perspectives</span><span class="score-val">9.6 / 10</span></div>
+        <div class="score-row"><span>Balance toward Palestinian perspectives</span><span class="score-val">9.4 / 10</span></div>
+        <div class="score-row"><span>Overall intellectual fairness</span><span class="score-val">9.6 / 10</span></div>
+      </div>
+
+      <div style="font-size:11px;font-family:'Courier New',monospace;color:#666;margin-bottom:20px;padding:10px;background:#f0ece4;border-left:3px solid #8b1a1a;">
+        "It distributes scrutiny rather than reserving it for one actor. Someone dismissing it as 'Zionist propaganda' would need to engage with the many sections that explicitly criticize Israeli governments. Someone calling it 'anti-Israel' would have to explain why it devotes substantial attention to Jewish historical ties, antisemitism, the Holocaust, terrorism against Israeli civilians, and Jewish refugees from Arab countries." — ChatGPT evaluation
+      </div>
+
+      <!-- ADD VIDEOS BELOW THIS LINE -->
+      <!-- To add a video, replace VIDEO_ID with the YouTube video ID -->
+      <!-- Example: https://www.youtube.com/watch?v=ABC123 → VIDEO_ID = ABC123 -->
+
+      <div class="video-add">
+        Add videos by replacing VIDEO_ID below
+        <code>&lt;!-- paste video embed here --&gt;</code>
+      </div>
+
+      <!-- VIDEO SLOT 1 -->
+      <!--
+      <div class="video-placeholder">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+        </div>
+        <div class="video-caption">Video title / description here</div>
+      </div>
+      -->
+
+      <!-- VIDEO SLOT 2 -->
+      <!--
+      <div class="video-placeholder">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+        </div>
+        <div class="video-caption">Video title / description here</div>
+      </div>
+      -->
+
+      <!-- VIDEO SLOT 3 -->
+      <!--
+      <div class="video-placeholder">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+        </div>
+        <div class="video-caption">Video title / description here</div>
+      </div>
+      -->
+
+      <div style="margin-top:24px;font-size:11px;font-family:'Courier New',monospace;color:#888;line-height:1.8;">
+        <strong style="color:#555;">How to add a video:</strong><br>
+        1. Find the YouTube video<br>
+        2. Copy the video ID from the URL (the part after v=)<br>
+        3. Open index.html in a text editor<br>
+        4. Find a VIDEO SLOT comment block<br>
+        5. Remove the comment tags and replace VIDEO_ID<br>
+        6. Add a description in the video-caption div
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Personal reference document &mdash; not for publication &mdash; conflict in the levant repository
+</footer>
+
+</body>
+</html>
