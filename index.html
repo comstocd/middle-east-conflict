@@ -164,6 +164,19 @@
 
   .chron-body { color: #222; font-size: 13px; line-height: 1.7; }
 
+  .summary-label {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    background: #2e6da4;
+    color: #fff;
+    padding: 1px 6px;
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
   .doc-link {
     display: block;
     background: #1c3557;
@@ -329,13 +342,13 @@ there is no palestine</div>
 
       <div class="message">
         <div class="speaker b">Player B</div>
-        <div class="message-text">they were there first and they were slaughtered for it. only the palestinians are still getting genocided <a class="ref-link" onclick="scrollChron('chron-1880')">→ 1880</a></div>
+        <div class="message-text">they were there first and they were slaughtered for it. only the palestinians are still getting genocided <a class="ref-link" onclick="scrollChron('chron-preface')">→ Ancient Claims</a></div>
       </div>
 
       <div class="message">
         <div class="speaker a">Player A</div>
         <div class="message-text">i never expected to hear strawman arguments from you.
-well, there you go ... they weren't "there first." <a class="ref-link" onclick="scrollChron('chron-1880')">→ 1880</a>
+well, there you go ... they weren't "there first." <a class="ref-link" onclick="scrollChron('chron-preface')">→ Ancient Claims</a>
 genocided?
 now i think *you're* drunk</div>
       </div>
@@ -344,7 +357,7 @@ now i think *you're* drunk</div>
         <div class="speaker b">Player B</div>
         <div class="message-text">i know
 even if they werent there first they still have been there for centuries and they have rights
-lets be honest. israel is more of a terrorist organisation than a country. its so much worse than al qaida has ever been</div>
+lets be honest. israel is more of a terrorist organisation than a country. its so much worse than al qaida has ever been <a class="ref-link" onclick="scrollChron('chron-1948')">→ 1948 War</a></div>
       </div>
 
       <div class="message">
@@ -386,7 +399,7 @@ jews being the victim of genocide in the past doesnt give israel the right to in
 
       <div class="message">
         <div class="speaker a">Player A</div>
-        <div class="message-text">do you know who Josef Mengele was?</div>
+        <div class="message-text">do you know who Josef Mengele was? <a class="ref-link" onclick="scrollChron('chron-holocaust')">→ Holocaust</a></div>
       </div>
 
       <div class="message">
@@ -434,7 +447,7 @@ Evil shit.</div>
 
       <div class="message">
         <div class="speaker a">Player A</div>
-        <div class="message-text">my point is this. you are accusing Israel of genocide. the actual genocide, the one with gas chambers and Mengele and six million dead, was supported and actively assisted by the leadership of the palestinian national movement. the man who led that movement was Haj Amin al-Husseini, the Grand Mufti of Jerusalem. he personally intervened with the german foreign ministry to send Jewish children to Auschwitz rather than let them be exchanged for German prisoners of war. that is the historical context in which Israel was founded. not as a colonial project. as the last refuge of a people who had just watched a third of their global population murdered, with the assistance of the very movement you are defending. <a class="ref-link" onclick="scrollChron('chron-arabrevolt')">→ Arab Revolt</a> <a class="ref-link" onclick="scrollChron('chron-1948')">→ 1948</a></div>
+        <div class="message-text">my point is this. you are accusing Israel of genocide. the actual genocide, the one with gas chambers and Mengele and six million dead, was supported and actively assisted by the leadership of the palestinian national movement. the man who led that movement was Haj Amin al-Husseini, the Grand Mufti of Jerusalem. he personally intervened with the german foreign ministry to send Jewish children to Auschwitz rather than let them be exchanged for German prisoners of war. that is the historical context in which Israel was founded. not as a colonial project. as the last refuge of a people who had just watched a third of their global population murdered, with the assistance of the very movement you are defending. <a class="ref-link" onclick="scrollChron('chron-holocaust')">→ Holocaust</a> <a class="ref-link" onclick="scrollChron('chron-arabrevolt')">→ Arab Revolt</a> <a class="ref-link" onclick="scrollChron('chron-1948')">→ 1948</a></div>
       </div>
 
       <div class="message">
@@ -466,7 +479,7 @@ also, daniel's family lived next to achmed's family for three thousand years bef
 
       <div class="message">
         <div class="speaker b">Player B</div>
-        <div class="message-text">i read about camp david 2000. its clear that the deal did not happen because israels position and palestiness position were too far apart.
+        <div class="message-text">i read about camp david 2000. its clear that the deal did not happen because israels position and palestiness position were too far apart. <a class="ref-link" onclick="scrollChron('chron-oslo')">→ Oslo / Camp David</a>
 maybe the jews have some merit. they way they are getting this land (genocide and war crimes) is wrong.</div>
       </div>
 
@@ -499,9 +512,9 @@ and between 1948 and 2000: five full scale wars declared against israel with the
         <div class="speaker b">Player B</div>
         <div class="message-text">not the most evil of all time of course but maybe top 5 most evil of the past 200 years.
 you are really worried about those 1450 people from october 7 while it has victimized 10000 times that number.
-hamas has killed around 1800 civilians since 1987. that is an average of 46 per year.
+hamas has killed around 1800 civilians since 1987. that is an average of 46 per year. <a class="ref-link" onclick="scrollChron('chron-arabrevolt')">→ Hamas origins</a>
 in that same period israel has killed 30000-50000 palestinian civilians.
-please dont pretend 50000 is less than 1800.</div>
+please dont pretend 50000 is less than 1800. <a class="ref-link" onclick="scrollChron('chron-oct7')">→ October 7</a></div>
       </div>
 
       <div class="message">
@@ -569,62 +582,59 @@ i didn't ignore amnesty, israel's own data, or your sources. i showed that amnes
       <div class="chron-section" id="chron-exec">
         <div class="chron-year">Executive Summary</div>
         <div class="chron-title">The Israeli-Palestinian Conflict: A Chronology, 1880–2025</div>
+        <div class="summary-label">Summary — see full document for detail</div>
         <div class="chron-body">This document traces the structural origins and compounding failures of the Israeli-Palestinian conflict across 145 years, organized in four parts.</div>
       </div>
 
-      <div class="chron-section" id="chron-p1exec">
-        <div class="chron-year">Part One (1880–1917)</div>
-        <div class="chron-body">Modern Zionism emerged not from colonial ambition but from state-sanctioned antisemitic violence in Eastern Europe, most immediately the Russian pogroms of 1881. Jewish immigration to Ottoman Palestine was legal, land purchases were market-based, and the two populations were not inherently incompatible. What made them incompatible was Britain's triple contradiction: issuing overlapping and arguably contradictory commitments regarding the same territory (to Arab leadership, France, and the Zionist movement) within 26 months during World War I, commitments whose precise geographic interpretation historians still dispute. Whether by deliberate design to preserve imperial leverage (as T.E. Lawrence and others have argued) or by opportunistic bureaucratic compartmentalization under wartime pressure, the contradictions were known to senior British officials before they became public and were allowed to persist. The effect was identical either way: a built-in insolubility embedded at the moment of the conflict's international founding that made resolution harder for every subsequent actor.</div>
-      </div>
-
-      <div class="chron-section" id="chron-p2exec">
-        <div class="chron-year">Part Two (1918–1948)</div>
-        <div class="chron-body">Britain severed 77% of the original mandatory territory to create Transjordan in 1921, then spent the remainder of the Mandate satisfying neither population. The Holocaust made the case for Jewish statehood politically and morally overwhelming in international opinion. The 1947 UN Partition Plan offered a compromise: the Jewish side accepted it, the Arab states rejected it and went to war to prevent its implementation, accompanied by explicitly eliminationist rhetoric from Arab League leaders. Israel survived. Approximately 700,000 Palestinians were displaced. Approximately 850,000 Jews were simultaneously expelled from Arab countries. Most Arab states (Jordan excepted) then left Palestinian statelessness unresolved, keeping most refugees in camps rather than absorbing them, a policy that preserved their statelessness while serving as political leverage against Israel, with consequences that endure.</div>
-      </div>
-
-      <div class="chron-section" id="chron-p3exec">
-        <div class="chron-year">Part Three (1948–1982)</div>
-        <div class="chron-body">Pan-Arab solidarity was exposed as fiction: Jordan killed Palestinians in 1970, Syria attacked the PLO in 1976, Egypt made separate peace in 1979, no Arab state intervened in Lebanon in 1982. Israel's 1977 political transformation (driven by the Yom Kippur trauma and Mizrahi demographic power) produced a government that viewed the West Bank as ancestral land rather than a bargaining chip, initiating the settlement enterprise that would later strangle Oslo. Israel's tolerance of Hamas as a counterweight to the secular PLO during the 1987 First Intifada produced the single most consequential strategic miscalculation of the post-1967 period.</div>
-      </div>
-
-      <div class="chron-section" id="chron-p4exec">
-        <div class="chron-year">Part Four (1993–2025)</div>
-        <div class="chron-body">Oslo deferred all hard questions, giving spoilers five years to destroy the process before its destination was articulated. Settlement construction nearly doubled during the peace years. Rabin's assassination removed the one Israeli leader capable of completing the framework. Camp David 2000 failed because neither leader could bridge the gap or prepare their publics. Each subsequent cycle of violence (Second Intifada, Protective Edge, October 7) reset public attitudes to a lower floor than before. The 2007 Gaza blockade failed to remove Hamas while paradoxically strengthening its political narrative. By 2025, 85% of Israeli Jews and 63% of Israelis and 65% of Palestinians believe permanent peace will never come.</div>
-      </div>
-
-      <div class="chron-section" id="chron-throughlineexec">
-        <div class="chron-year">The Through-Line</div>
-        <div class="chron-body">Every negotiating window was closed by at least one of three structural failures: fragmented Palestinian leadership unable to deliver a unified polity, Israeli leadership unable to halt settlement expansion while negotiating its territorial basis, and external shocks resetting political context before agreements could mature. Each failure left physical and psychological infrastructure making the next attempt harder. The cycle follows a rigid pattern: failed negotiation or unilateral move, outbreak of violence, collapse of domestic peace support, political hardening and settlement expansion, deeper public cynicism, repeat at a lower floor.
-
-By 2025 the settler population has grown from approximately 250,000 in 1993 (110,000 in the West Bank plus roughly 140,000 in East Jerusalem) to approximately 700,000 including East Jerusalem. Two generations have grown up entirely within this cycle. The question is no longer whether a two-state solution is theoretically correct. It is whether the conditions for implementing any solution still exist.</div>
-      </div>
-
       <div class="chron-section" id="chron-preface">
-        <div class="chron-year">Historical Preface: Before 1880</div>
-        <div class="chron-title">Two Ancient Claims</div>
-        <div class="chron-body">The Jewish connection to the land is ancient and documented. Israelite and Judahite kingdoms existed from roughly the 10th century BCE. After Rome crushed the Bar Kokhba revolt in 135 CE and renamed the province Syria Palaestina, most Jews were dispersed, but a Jewish presence in the land never disappeared, persisting through Byzantine, Arab, Crusader, Mamluk, and Ottoman rule.
+        <div class="chron-year">Before 1880 — Part One (1880–1917)</div>
+        <div class="chron-title">Ancient Claims and the Road to Balfour</div>
+        <div class="summary-label">Summary — see full document for detail</div>
+        <div class="chron-body">The Jewish connection to the land is ancient and documented. Israelite and Judahite kingdoms existed from roughly the 10th century BCE. After Rome crushed the Bar Kokhba revolt in 135 CE and renamed the province Syria Palaestina, most Jews were dispersed, but a Jewish presence never disappeared, persisting through Byzantine, Arab, Crusader, Mamluk, and Ottoman rule. Jerusalem had a Jewish majority by the mid-19th century.
 
-The Arab connection is also ancient and continuous. Arab Muslim rule began with the conquests of the 630s CE, and the population became, over centuries, overwhelmingly Arabic-speaking and majority Muslim. By 1880 their ancestors had lived there for over a millennium.
+The Arab connection is also ancient and continuous. Arab Muslim rule began with the conquests of the 630s CE, and the population became overwhelmingly Arabic-speaking and majority Muslim. By 1880 their ancestors had lived there for over a millennium.
 
-Neither claim cancels the other. The conflict that follows is the collision of two peoples with genuine, differently structured historical connections to the same land, forced into competition by nineteenth and twentieth century political forces.</div>
+Neither claim cancels the other. What made them incompatible was not their coexistence but the political forces of the 19th and 20th centuries: state-sanctioned antisemitic violence in Eastern Europe (most immediately the Russian pogroms of 1881) drove a refugee movement to Ottoman Palestine. Jewish immigration was legal, land purchases were market-based, and the two populations were not inherently incompatible.
+
+What made them incompatible was Britain's triple contradiction: issuing overlapping and arguably contradictory commitments regarding the same territory (to Arab leadership, France, and the Zionist movement) within 26 months during World War I, commitments whose precise geographic interpretation historians still dispute. Whether by deliberate design to preserve imperial leverage (as T.E. Lawrence and others have argued) or by opportunistic bureaucratic compartmentalization under wartime pressure, the contradictions were known to senior British officials before they became public and were allowed to persist. The effect was identical either way: a built-in insolubility embedded at the moment of the conflict's international founding that made resolution harder for every subsequent actor.</div>
       </div>
 
       <div class="chron-section" id="chron-1880">
         <div class="chron-year">1880</div>
         <div class="chron-title">Baseline: Ottoman Palestine</div>
-        <div class="chron-body">Before modern Zionism existed as a political movement, Ottoman Palestine was home to approximately 457,000 people: approximately 87% Muslim Arab, 10% Christian Arab, and 3% Jewish, roughly 15,000 Jews. Jerusalem already had a Jewish majority by the mid-19th century. The land was neither empty nor a sovereign political unit. It was an Ottoman administrative district, a collection of peripheral sanjaks governed from Constantinople.</div>
+        <div class="chron-body">Before modern Zionism existed as a political movement, Ottoman Palestine was home to approximately 457,000 people: approximately 87% Muslim Arab, 10% Christian Arab, and 3% Jewish, roughly 15,000–80,000 Jews depending on source and methodology. Ottoman census records are known to significantly undercount minority populations. Jerusalem already had a Jewish majority by the mid-19th century. The land was neither empty nor a sovereign political unit. It was an Ottoman administrative district, a collection of peripheral sanjaks governed from Constantinople.
+
+The Jewish population was so small because of nearly two millennia of diaspora following two catastrophic Roman suppressions. In 70 CE Rome destroyed the Second Temple and sacked Jerusalem, killing or enslaving much of the Jewish population and dispersing survivors across the empire. The Bar Kokhba revolt of 132–135 CE was crushed even more decisively. Rome then renamed the province Syria Palaestina, banned Jews from Jerusalem entirely, and the demographic center of Jewish life shifted permanently, first to Babylonia, then over subsequent centuries to Europe and North Africa.
+
+A continuous Jewish presence persisted through all subsequent ruling powers: Byzantine, Arab, Crusader, Mamluk, and Ottoman, concentrated in the four holy cities of Jerusalem, Safed, Tiberias, and Hebron, sustained by religious pilgrimage and charitable support from diaspora communities. Under Ottoman rule from 1517 onward, Jews had recognized legal status as a protected minority but no incentive or mechanism for mass return. By 1880 that remnant community had grown modestly but remained a small fraction of the population, the demographic consequence of 1,700 years of enforced dispersal.</div>
       </div>
 
       <div class="chron-section" id="chron-pogroms">
-        <div class="chron-year">1881–1884</div>
+        <div class="chron-year">1881–1906</div>
         <div class="chron-title">Russian Pogroms: The Trigger</div>
-        <div class="chron-body">On March 1, 1881, Tsar Alexander II was assassinated. The Russian government blamed Jewish agitators. Organized massacres swept the Pale of Settlement across Ukraine, Moldova, and southern Russia with state complicity. The 1882 May Laws formally restricted where Jews could live, what professions they could enter, and what property they could own. Approximately 2.5 million Jews left Eastern Europe over the following three decades. Modern Zionism began not as colonial ambition but as flight.</div>
+        <div class="chron-body">On March 1, 1881, Tsar Alexander II was assassinated. The Russian government blamed Jewish agitators despite no credible evidence. Within weeks, organized massacres swept the Pale of Settlement across Ukraine, Moldova, and southern Russia, the territory where Russian law required Jews to live. Local authorities stood aside or participated. The violence was not spontaneous; it followed patterns suggesting coordination, and it recurred in waves.
+
+The 1882 May Laws formalized Jewish persecution in law: Jews were barred from rural areas even within the Pale, excluded from certain professions, restricted from higher education by quotas, and subjected to arbitrary expulsion. The effect was systematic impoverishment and confinement.
+
+A second wave of pogroms struck in 1903–1906, most notoriously at Kishinev in April 1903, where 49 Jews were killed and hundreds wounded over two days while police watched. Photographs of the aftermath circulated internationally and shocked the world. The Kishinev pogrom became the direct catalyst for the Second Aliyah, the wave of Jewish immigration to Ottoman Palestine that would build the institutional foundations of the future state.
+
+Approximately 2.5 million Jews left Eastern Europe over the three decades following 1881. The overwhelming majority went to America. A small but historically decisive minority went to Palestine. Modern Zionism did not emerge from ideology alone. It emerged from the recognition, forced by repeated state-sanctioned massacre, that Jewish life in Europe had no guaranteed future.</div>
       </div>
 
       <div class="chron-section" id="chron-throughline1917">
         <div class="chron-year">1917 — Through-Line</div>
         <div class="chron-title">Not a Colonial Project</div>
         <div class="chron-body">Nothing about the Zionist movement from 1881 to 1917 resembled a conventional colonial project: no metropolitan power backed it, no military force protected it, no territorial administration governed it. At its core it was a refugee movement. The Palestinian Arab population was real, had been there for generations, and had legitimate presence and interests. What made the two peoples' claims incompatible was accelerating immigration, British promise-making that served British interests rather than either population's interests, and the collapse of Ottoman order that left a power vacuum both communities rushed to fill.</div>
+      </div>
+
+      <div class="chron-section" id="chron-holocaust">
+        <div class="chron-year">1933–1945</div>
+        <div class="chron-title">The Holocaust</div>
+        <div class="chron-body">Hitler's rise to power in 1933 immediately transformed Jewish immigration to Palestine as German Jews fled escalating persecution. Between 1941 and 1945, Nazi Germany systematically murdered approximately six million Jews (two thirds of European Jewry) in an industrialized extermination program. Auschwitz-Birkenau was the largest of the death camps; approximately 1.1 million people were murdered there, the overwhelming majority Jews. Dr. Josef Mengele, the SS physician at Auschwitz, conducted sadistic medical experiments on prisoners, with a particular focus on twins and children, without anesthesia or consent. His experiments produced no legitimate medical knowledge and caused immense suffering and death.
+
+The Holocaust did not create Zionism, which had been a growing political movement for sixty years. It made the moral and practical case for Jewish statehood unanswerable. The British White Paper immigration restrictions remained in effect throughout the war, closing Palestine to Jewish refugees fleeing extermination. The Struma, carrying 769 Jewish refugees from Romania, was denied entry to Palestine, towed into the Black Sea, and sank in February 1942 after being torpedoed by a Soviet submarine. One person survived.
+
+By 1945, approximately 250,000 Jewish survivors were stranded in displaced persons camps across Europe. The United States and Britain refused to alter immigration quotas to absorb them. Palestine was the only available destination with an organized reception infrastructure.</div>
       </div>
 
       <div class="chron-section" id="chron-arabrevolt">
@@ -662,13 +672,13 @@ Simultaneously, approximately 850,000 Jews were expelled or forced to flee from 
       <div class="chron-section" id="chron-yomkippur">
         <div class="chron-year">1973</div>
         <div class="chron-title">The Yom Kippur War</div>
-        <div class="chron-body">On October 6, 1973 — Yom Kippur, the holiest day in the Jewish calendar — Egypt and Syria launched a coordinated surprise attack on Israeli positions. Israel recovered, reversed the military situation on both fronts, and crossed the Suez Canal in counterattack. Approximately 2,600 Israelis killed, 7,000 wounded. The psychological shock permanently damaged the Labor government's credibility and accelerated the political shift toward the right that culminated in the 1977 Mahapach.</div>
+        <div class="chron-body">On October 6, 1973, Yom Kippur, the holiest day in the Jewish calendar, Egypt and Syria launched a coordinated surprise attack on Israeli positions. Israel recovered, reversed the military situation on both fronts, and crossed the Suez Canal in counterattack. Approximately 2,600 Israelis killed, 7,000 wounded. The psychological shock permanently damaged the Labor government's credibility and accelerated the political shift toward the right that culminated in the 1977 Mahapach.</div>
       </div>
 
       <div class="chron-section" id="chron-oslo">
         <div class="chron-year">1993–2008</div>
         <div class="chron-title">Oslo, Camp David, and the Failed Offers</div>
-        <div class="chron-body">The Oslo Accords (1993) deliberately deferred the hardest questions — Jerusalem, refugees, borders, settlements — to final status negotiations that never happened. Settlement construction nearly doubled during the peace years. Rabin's assassination in November 1995 removed the one Israeli leader capable of completing the framework.
+        <div class="chron-body">The Oslo Accords (1993) deliberately deferred the hardest questions: Jerusalem, refugees, borders, and settlements, to final status negotiations that never happened. Settlement construction nearly doubled during the peace years. Rabin's assassination in November 1995 removed the one Israeli leader capable of completing the framework.
 
 Camp David 2000: Clinton, Barak, and Arafat. Clinton and Barak publicly stated Arafat was responsible for the failure. Arafat was offered a state and chose the Second Intifada instead. 1,000 Israeli civilians died in suicide bombings in the following two years.
 
@@ -678,7 +688,7 @@ Olmert's 2008 offer: the most comprehensive Israeli offer ever made, including a
       <div class="chron-section" id="chron-oct7">
         <div class="chron-year">October 7, 2023</div>
         <div class="chron-title">The Hamas Attack</div>
-        <div class="chron-body">Hamas had spent approximately two years planning the assault, calculating that the Abraham Accords process moving toward Saudi-Israeli normalization needed to be disrupted before it further marginalized Palestinian claims. The assault resulted in the deaths of 1,200 Israelis and the taking of 250 hostages. Israeli Jewish support for peace negotiations collapsed from 47.6% to 24.5% within three weeks — the lowest figure since 2001.
+        <div class="chron-body">Hamas had spent approximately two years planning the assault, calculating that the Abraham Accords process moving toward Saudi-Israeli normalization needed to be disrupted before it further marginalized Palestinian claims. The assault resulted in the deaths of 1,200 Israelis and the taking of 250 hostages. Israeli Jewish support for peace negotiations collapsed from 47.6% to 24.5% within three weeks, the lowest figure since 2001.
 
 Palestinian polling simultaneously showed 81% of Palestinians believed October 7 was morally and politically justified. This data captures a profound contradiction: a population that conceptually prefers a diplomatic resolution while validating the violence that eliminated the political viability of that framework.</div>
       </div>
@@ -726,7 +736,14 @@ Palestinian polling simultaneously showed 81% of Palestinians believed October 7
         <div class="video-wrapper">
           <iframe src="https://www.youtube.com/embed/QlK2mfYYm4U?start=4879" allowfullscreen></iframe>
         </div>
-        <div class="video-caption">Video resource</div>
+        <div class="video-caption">Video resource 1</div>
+      </div>
+
+      <div class="video-placeholder">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/WDCCPbQFaBs" allowfullscreen></iframe>
+        </div>
+        <div class="video-caption">Video resource 2</div>
       </div>
 
       <!--
