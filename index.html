@@ -204,6 +204,8 @@
     border: 6px solid transparent;
     border-top-color: #1c3557;
   }
+
+  .summary-label {
     display: inline-block;
     font-family: 'Courier New', monospace;
     font-size: 9px;
@@ -419,7 +421,7 @@ lets be honest. <span class="tooltip">israel is more of a terrorist organisation
         <div class="speaker a">Player A</div>
         <div class="message-text">if you truly believe that the ONLY democratic state in the middle-east, the ONLY jewish state in the middle-east is a "terrorist organization" i think we're done.
 particularly in light of you admitting that you don't know the history of the MULTITUDE of attacks for 100 years against the jews
-and your failure to understand that those in the west bank and gaza were forced there after egypt and jordan expelled them <a class="ref-link" onclick="scrollChron('chron-blackseptember')">→ Black September</a>
+and your failure to understand that those in the west bank and gaza were forced there after egypt and jordan expelled them <a class="ref-link" onclick="scrollChron('chron-sixday')">→ Six-Day War</a> <a class="ref-link" onclick="scrollChron('chron-blackseptember')">→ Black September</a>
 i find it truly astounding and supremely disappointing.
 i don't need people to agree with me, but i do need people to at least be honest.
 the amount of <span class="tooltip">antisemitism in Europe and in the news media is sad, and i understand that you are constantly bombarded with it<span class="tooltip-text" style="width:400px;">Documented: antisemitism in Europe has risen measurably since October 7. The EU Agency for Fundamental Rights and national police statistics across France, Germany, the UK, and the Netherlands all recorded significant increases in antisemitic incidents in 2023 and 2024. The Netherlands specifically: Amsterdam saw a widely documented attack on Israeli football supporters in November 2024. Interpretive: whether European news media coverage of the conflict constitutes antisemitism by effect or intent is contested. Critics argue coverage systematically decontextualizes Israeli actions. Defenders argue it reflects legitimate reporting on civilian casualties. Player A is making a claim about media environment that is partially supported by documented antisemitism data and partially a contested interpretation of editorial framing.</span></span>.
@@ -530,13 +532,13 @@ also, daniel's family lived next to achmed's family for three thousand years bef
 
       <div class="message">
         <div class="speaker b">Player B</div>
-        <div class="message-text">i read about camp david 2000. its clear that the deal did not happen because israels position and palestiness position were too far apart. <a class="ref-link" onclick="scrollChron('chron-oslo')">→ Oslo / Camp David</a>
+        <div class="message-text">i read about camp david 2000. its clear that the deal did not happen because israels position and palestiness position were too far apart. <a class="ref-link" onclick="scrollChron('chron-campd')">→ Camp David 2000</a>
 maybe the jews have some merit. they way they are getting this land (genocide and war crimes) is wrong.</div>
       </div>
 
       <div class="message">
         <div class="speaker a">Player A</div>
-        <div class="message-text">the mediators themselves don't agree with you. clinton, ross, and barak all publicly stated arafat was responsible for the failure. clinton said so explicitly in his memoirs. arafat was offered a state and chose the second intifada instead. 1000 israeli civilians died in suicide bombings in the following two years. <a class="ref-link" onclick="scrollChron('chron-oslo')">→ Oslo / Camp David</a>
+        <div class="message-text">the mediators themselves don't agree with you. clinton, ross, and barak all publicly stated arafat was responsible for the failure. clinton said so explicitly in his memoirs. arafat was offered a state and chose the second intifada instead. 1000 israeli civilians died in suicide bombings in the following two years. <a class="ref-link" onclick="scrollChron('chron-campd')">→ Camp David 2000</a>
 and russia has never been attacked by ukraine. israel has been attacked continuously since 1948 by neighbors who declared their intention to annihilate it.
 you said maybe the jews have some merit. i'd like to stay with that. what would it take for you to believe that israel has the right to exist?</div>
       </div>
@@ -563,7 +565,7 @@ and between 1948 and 2000: five full scale wars declared against israel with the
         <div class="speaker b">Player B</div>
         <div class="message-text">not the most evil of all time of course but maybe top 5 most evil of the past 200 years.
 you are really worried about those 1450 people from october 7 while it has victimized 10000 times that number.
-hamas has killed around 1800 civilians since 1987. that is an average of 46 per year. <a class="ref-link" onclick="scrollChron('chron-arabrevolt')">→ Hamas origins</a>
+hamas has killed around 1800 civilians since 1987. that is an average of 46 per year. <a class="ref-link" onclick="scrollChron('chron-hamas')">→ Hamas founding</a>
 in that same period israel has killed 30000-50000 palestinian civilians.
 please dont pretend 50000 is less than 1800. <a class="ref-link" onclick="scrollChron('chron-oct7')">→ October 7</a></div>
       </div>
@@ -633,6 +635,35 @@ i didn't ignore amnesty, israel's own data, or your sources. i showed that amnes
       Historical Chronology
     </div>
     <div class="panel-body" id="chron-panel">
+
+      <div style="margin-bottom:20px;border:1px solid #2e6da4;border-radius:3px;overflow:hidden;">
+        <div onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.querySelector('.toc-arrow').textContent=this.nextElementSibling.style.display==='none'?'▶':'▼';" style="background:#1c3557;color:#fff;padding:10px 14px;cursor:pointer;font-family:'Courier New',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;">
+          Table of Contents <span class="toc-arrow">▶</span>
+        </div>
+        <div style="display:none;padding:10px 14px;background:#e8f0f8;font-family:'Courier New',monospace;font-size:11px;line-height:2;">
+          <a onclick="scrollChron('chron-exec')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">Executive Summary</a>
+          <a onclick="scrollChron('chron-preface')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">Before 1880 — Ancient Claims and the Road to Balfour</a>
+          <a onclick="scrollChron('chron-1880')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">1880 — Baseline: Ottoman Palestine</a>
+          <a onclick="scrollChron('chron-pogroms')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">1881–1906 — Russian Pogroms</a>
+          <a onclick="scrollChron('chron-throughline1917')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">1917 — Not a Colonial Project</a>
+          <a onclick="scrollChron('chron-holocaust')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">1933–1945 — The Holocaust</a>
+          <a onclick="scrollChron('chron-arabrevolt')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">1936–1945 — The Arab Revolt and al-Husseini</a>
+          <a onclick="scrollChron('chron-partition')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">1947 — Partition and Its Rejection</a>
+          <a onclick="scrollChron('chron-1948')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">1948 — War of Independence / The Nakba</a>
+          <a onclick="scrollChron('chron-unrwa')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">1949 — UNRWA and the Refugee Question</a>
+          <a onclick="scrollChron('chron-plo')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">1956 / 1964 — Suez, Fatah, and the PLO</a>
+          <a onclick="scrollChron('chron-sixday')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">1967 — The Six-Day War</a>
+          <a onclick="scrollChron('chron-hamas')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">1987 — First Intifada and the Birth of Hamas</a>
+          <a onclick="scrollChron('chron-blackseptember')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">1970–1971 — Black September</a>
+          <a onclick="scrollChron('chron-munich')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">1972 — Munich Olympics Massacre</a>
+          <a onclick="scrollChron('chron-yomkippur')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">1973 — The Yom Kippur War</a>
+          <a onclick="scrollChron('chron-oslo')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">1993–2000 — Oslo</a>
+          <a onclick="scrollChron('chron-campd')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">2000–2005 — Camp David and the Second Intifada</a>
+          <a onclick="scrollChron('chron-olmert')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">2008 — The Olmert Offer</a>
+          <a onclick="scrollChron('chron-oct7')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">October 7, 2023 — The Hamas Attack</a>
+          <a onclick="scrollChron('chron-2025')" style="display:block;color:#1c3557;cursor:pointer;text-decoration:none;">2025 — All-Time Lows</a>
+        </div>
+      </div>
 
       <div class="chron-section" id="chron-exec">
         <div class="chron-year">Executive Summary</div>
@@ -736,6 +767,36 @@ By 1945, approximately 250,000 Jewish survivors were stranded in displaced perso
 Simultaneously, approximately 850,000 Jews were expelled or forced to flee from Arab countries in the years following 1948. The vast majority went to Israel and were fully integrated. They are not counted among the world's permanent refugees, and their existence is the historical mirror image of Palestinian displacement that modern Western discourse frequently erases.</div>
       </div>
 
+      <div class="chron-section" id="chron-unrwa">
+        <div class="chron-year">1949</div>
+        <div class="chron-title">UNRWA and the Refugee Question</div>
+        <div class="chron-body">The United Nations Relief and Works Agency for Palestine Refugees was established in December 1949 to provide humanitarian assistance to approximately 700,000 displaced Palestinians. It was intended as a temporary measure pending a political resolution. It is the only refugee assistance program in history still operating 70 years after its formation — every other refugee population displaced in the post-WWII era, including the 850,000 Jews expelled from Arab countries, was absorbed and resettled within a generation.
+
+UNRWA is also structurally unique in a second way: it defines refugee status hereditarily. Descendants of the original 700,000 displaced Palestinians are counted as refugees regardless of whether they were born in Jordan, Lebanon, or the United States. UNHCR, which handles all other refugee populations globally, does not define refugee status this way. If Palestinian refugees were processed under UNHCR's standard definition, the number eligible would be a fraction of the current 5.9 million. The hereditary definition is by design — it preserves the political claim of return across generations.
+
+The Arab states that declared war in 1948 did not absorb the refugees they helped displace. Egypt administered Gaza under military rule. Jordan annexed the West Bank and East Jerusalem. Neither offered Palestinians citizenship or independent statehood. The refugees were kept in camps and preserved as stateless, deliberately, as a permanent political instrument against Israel. This policy of regional abandonment is the structural context without which Palestinian refugee suffering cannot be honestly understood.</div>
+      </div>
+
+      <div class="chron-section" id="chron-plo">
+        <div class="chron-year">1956 / 1964</div>
+        <div class="chron-title">Suez, Fatah, and the Founding of the PLO</div>
+        <div class="chron-body">The 1956 Suez Crisis saw Israel, Britain, and France attack Egypt after Nasser nationalized the canal. The United States forced all three to withdraw. For the Arab world, Nasser emerged from military defeat as a political hero. Fatah, the Palestinian guerrilla faction that would later take over the PLO, was formally founded in 1959. Its first cross-border military raid into Israel was January 1, 1965. The Palestine Liberation Organization was established in Jerusalem in May 1964 under the direct sponsorship of Egypt and the Arab League. At this stage the PLO was not an independent national movement. It was a proxy controlled by Arab state intelligence services designed to channel Palestinian nationalism without dragging Arab states into premature conventional war with Israel.</div>
+      </div>
+
+      <div class="chron-section" id="chron-sixday">
+        <div class="chron-year">1967</div>
+        <div class="chron-title">The Six-Day War</div>
+        <div class="chron-body">Between June 5 and June 10, 1967, Israel struck Arab armies that had been openly and explicitly preparing to destroy it. The characterization of this as merely "preemptive" understates the factual record. Egypt had already committed acts that constitute casus belli under international law: expelling the UN peacekeeping force from Sinai, closing the Straits of Tiran to Israeli shipping (itself an act of war under international law), massing 100,000 troops on Israel's border, and signing a mutual defense pact with Jordan. Nasser had publicly and repeatedly declared his intent to destroy Israel. The Israeli strike was based on observable military deployments and explicit statements by heads of state, not on inference or strategic doctrine. Several international legal scholars have argued Israel was not acting preemptively in the strict sense but defensively, since Egypt's closure of the Straits of Tiran was an act of war that had already occurred.
+
+In six days Israel defeated Egypt, Jordan, and Syria, taking control of the Sinai Peninsula, the Gaza Strip, the West Bank, East Jerusalem, and the Golan Heights. The war shattered the core premise of Pan-Arabism: Arab state conventional militaries had been the promised instrument of Palestinian liberation. They were destroyed in less than a week. The entire geographic baseline of a future Palestinian state, the West Bank and Gaza, was now under Israeli military occupation. UN Security Council Resolution 242, calling for Israeli withdrawal from occupied territories and the right of all states to live in peace within secure and recognized boundaries, remains the formal legal basis for peace negotiations to this day.</div>
+      </div>
+
+      <div class="chron-section" id="chron-hamas">
+        <div class="chron-year">1987</div>
+        <div class="chron-title">The First Intifada and the Birth of Hamas</div>
+        <div class="chron-body">On December 9, 1987, an Israeli military truck struck vehicles carrying Palestinian workers near the Jabalia refugee camp in Gaza, killing four. The incident triggered a mass uprising that had been building across twenty years of occupation. Five days later, Hamas was founded as an offshoot of the Egyptian Muslim Brotherhood, issuing a founding charter in August 1988 explicitly rejecting negotiations and calling for the total liberation of all Palestine. Critically, Israeli military and intelligence initially tolerated Hamas's growth as a counterweight to the secular PLO. This was the single most consequential strategic miscalculation of the post-1967 period. The First Intifada wound down between 1991 and 1993, having killed approximately 1,000 Palestinians and 160 Israelis over six years. The Madrid Conference of 1991 and the subsequent Oslo back-channel were its direct diplomatic products.</div>
+      </div>
+
       <div class="chron-section" id="chron-blackseptember">
         <div class="chron-year">1970–1971</div>
         <div class="chron-title">Black September: Arab States vs. Palestinians</div>
@@ -755,13 +816,21 @@ Simultaneously, approximately 850,000 Jews were expelled or forced to flee from 
       </div>
 
       <div class="chron-section" id="chron-oslo">
-        <div class="chron-year">1993–2008</div>
-        <div class="chron-title">Oslo, Camp David, and the Failed Offers</div>
-        <div class="chron-body">The Oslo Accords (1993) deliberately deferred the hardest questions: Jerusalem, refugees, borders, and settlements, to final status negotiations that never happened. Settlement construction nearly doubled during the peace years. Rabin's assassination in November 1995 removed the one Israeli leader capable of completing the framework.
+        <div class="chron-year">1993–2000</div>
+        <div class="chron-title">Oslo: A Framework Without a Destination</div>
+        <div class="chron-body">The Oslo Accords (1993) deliberately deferred the hardest questions: Jerusalem, refugees, borders, and settlements, to final status negotiations that never happened. Settlement construction nearly doubled during the peace years, growing from approximately 250,000 to over 400,000. Rabin's assassination in November 1995 removed the one Israeli leader capable of completing the framework. His successor Peres lost elections to Netanyahu in 1996. Netanyahu's first term was characterized by deliberate slowdown, minimal Oslo compliance, and continued settlement expansion. Palestinian confidence in Israeli good faith collapsed.</div>
+      </div>
 
-Camp David 2000: Clinton, Barak, and Arafat. Clinton and Barak publicly stated Arafat was responsible for the failure. Arafat was offered a state and chose the Second Intifada instead. 1,000 Israeli civilians died in suicide bombings in the following two years.
+      <div class="chron-section" id="chron-campd">
+        <div class="chron-year">2000–2005</div>
+        <div class="chron-title">Camp David and the Second Intifada</div>
+        <div class="chron-body">Camp David 2000: Clinton, Barak, and Arafat met in July. Clinton and Barak publicly stated Arafat was responsible for the failure. Clinton said so explicitly in his memoirs. Arafat was offered a state and chose the Second Intifada instead. Hamas and Islamic Jihad launched a sustained suicide bombing campaign killing over 1,000 Israeli civilians in buses, restaurants, markets, and nightclubs over five years. Israeli support for peace negotiations collapsed to its lowest recorded level. Labor declined as a political force. Sharon withdrew Israel from Gaza unilaterally in 2005, establishing unilateralism rather than negotiation as Israel's preferred tool. Arafat died in 2004.</div>
+      </div>
 
-Olmert's 2008 offer: the most comprehensive Israeli offer ever made, including approximately 93–94% of the West Bank with land swaps, a Palestinian capital in East Jerusalem, and an international mechanism for holy sites. Abbas did not respond. Both leaders were politically weakened; Hamas controlled Gaza and Abbas could not credibly claim to represent all Palestinians.</div>
+      <div class="chron-section" id="chron-olmert">
+        <div class="chron-year">2008</div>
+        <div class="chron-title">The Olmert Offer</div>
+        <div class="chron-body">Olmert's 2008 offer was the most comprehensive Israeli offer ever made: approximately 93-94% of the West Bank with land swaps, a Palestinian capital in East Jerusalem including parts of the Old City, and an international mechanism for holy sites. The factual record is disputed. Olmert states Abbas never responded. Abbas states he was never shown a map he could take away and study, and that Olmert's political weakness made any agreement unimplementable. Both leaders were politically weakened. Hamas had seized Gaza by force in 2007, meaning Abbas could not credibly claim to speak for all Palestinians even if willing to sign. Olmert resigned later that year.</div>
       </div>
 
       <div class="chron-section" id="chron-oct7">
