@@ -164,7 +164,46 @@
 
   .chron-body { color: #222; font-size: 13px; line-height: 1.7; }
 
-  .summary-label {
+  .tooltip {
+    position: relative;
+    border-bottom: 1px dotted #2e6da4;
+    cursor: help;
+  }
+
+  .tooltip .tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+    width: 320px;
+    background: #1c3557;
+    color: #ffffff;
+    font-size: 11px;
+    line-height: 1.6;
+    font-family: 'Georgia', serif;
+    padding: 12px 14px;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 100;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.2s;
+    pointer-events: none;
+  }
+
+  .tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #1c3557;
+  }
     display: inline-block;
     font-family: 'Courier New', monospace;
     font-size: 9px;
@@ -594,7 +633,7 @@ i didn't ignore amnesty, israel's own data, or your sources. i showed that amnes
 
 The Arab connection is also ancient and continuous. Arab Muslim rule began with the conquests of the 630s CE, and the population became overwhelmingly Arabic-speaking and majority Muslim. By 1880 their ancestors had lived there for over a millennium.
 
-Neither claim cancels the other. What made them incompatible was not their coexistence but the political forces of the 19th and 20th centuries: state-sanctioned antisemitic violence in Eastern Europe (most immediately the Russian pogroms of 1881) drove a refugee movement to Ottoman Palestine. Jewish immigration was legal, land purchases were market-based, and the two populations were not inherently incompatible.
+Neither claim cancels the other. What made them incompatible was not their coexistence but the political forces of the 19th and 20th centuries: state-sanctioned antisemitic violence in Eastern Europe (most immediately the Russian <span class="tooltip">pogroms<span class="tooltip-text">Organized massacres of Jewish communities, carried out with state complicity. The most documented early example: Kishinev, April 1903. 49 Jews killed, hundreds wounded, 1,500 homes destroyed. Over 250 Jewish men organized armed self-defense. Tsar Nicholas II described the perpetrators as "loyal people" in a letter to his mother. Police were not ordered to intervene. Historian Steven Zipperstein argues Kishinev's significance was amplified because the city was already a center of Zionist organizing, spreading news of the massacre further and faster than it otherwise would have traveled.</span></span> of 1881) drove a refugee movement to Ottoman Palestine. Jewish immigration was legal, land purchases were market-based, and the two populations were not inherently incompatible.
 
 What made them incompatible was Britain's triple contradiction: issuing overlapping and arguably contradictory commitments regarding the same territory (to Arab leadership, France, and the Zionist movement) within 26 months during World War I, commitments whose precise geographic interpretation historians still dispute. Whether by deliberate design to preserve imperial leverage (as T.E. Lawrence and others have argued) or by opportunistic bureaucratic compartmentalization under wartime pressure, the contradictions were known to senior British officials before they became public and were allowed to persist. The effect was identical either way: a built-in insolubility embedded at the moment of the conflict's international founding that made resolution harder for every subsequent actor.</div>
       </div>
@@ -616,7 +655,9 @@ A continuous Jewish presence persisted through all subsequent ruling powers: Byz
 
 The 1882 May Laws formalized Jewish persecution in law: Jews were barred from rural areas even within the Pale, excluded from certain professions, restricted from higher education by quotas, and subjected to arbitrary expulsion. The effect was systematic impoverishment and confinement.
 
-A second wave of pogroms struck in 1903–1906, most notoriously at Kishinev in April 1903, where 49 Jews were killed and hundreds wounded over two days while police watched. Photographs of the aftermath circulated internationally and shocked the world. The Kishinev pogrom became the direct catalyst for the Second Aliyah, the wave of Jewish immigration to Ottoman Palestine that would build the institutional foundations of the future state.
+A second wave of pogroms struck in 1903 to 1906, encompassing hundreds of attacks across the Pale of Settlement. Three episodes are particularly documented:
+
+<span class="tooltip">Kishinev, April 1903<span class="tooltip-text">49 Jews killed, hundreds wounded over two days. Triggered by blood libel accusations in the antisemitic newspaper Bessarabets. Police stood by on orders. Tsar Nicholas II called the perpetrators "loyal people." Bialik's poem "In the City of Slaughter" initially portrayed Jews as passive — but historian Steven Zipperstein documents that over 250 Jewish men organized armed self-defense, guarding neighborhoods with bats and metal objects.</span></span>: 49 killed, hundreds wounded. <span class="tooltip">Odessa, October 1905<span class="tooltip-text">The deadliest pogrom in Odessa's history. Official police figures: at least 400 Jews and 100 non-Jews killed, over 1,600 Jewish homes and businesses destroyed. The Jewish newspaper Voskhod reported over 800 killed. The City Governor estimated 2,500 total casualties. Police compiled advance lists of Jewish-owned properties to facilitate the attacks. Jewish self-defense groups resisted but faced overwhelming numbers including police and soldiers who sided with the pogromists.</span></span>: at least 400 Jews killed by official count, likely over 800 by other accounts, 1,600 properties destroyed. <span class="tooltip">Bialystok, June 1906<span class="tooltip-text">The Russian State Duma's own investigation found the pogrom was pre-planned by government and police administration, leading directly to the systematic shooting of "peaceful Jewish residents, women, and children." 82 Jews killed, 90 gravely wounded, 169 shops and houses looted. Jewish self-defense units shielded working-class districts — an experience that directly influenced the formation of Hashomer, the first Jewish armed guard organization in Palestine, in 1909.</span></span>: 82 Jews killed, organized by Czarist police and military, the Duma's own investigation confirmed. Photographs of aftermath circulated internationally. The Kishinev pogrom became the direct catalyst for the Second Aliyah, the wave of Jewish immigration to Ottoman Palestine that would build the institutional foundations of the future state.
 
 Approximately 2.5 million Jews left Eastern Europe over the three decades following 1881. The overwhelming majority went to America. A small but historically decisive minority went to Palestine. Modern Zionism did not emerge from ideology alone. It emerged from the recognition, forced by repeated state-sanctioned massacre, that Jewish life in Europe had no guaranteed future.</div>
       </div>
